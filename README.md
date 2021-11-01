@@ -1,11 +1,11 @@
-# Coffee detection on Raspberry PI
+# Raspberry PI coffee detection
 ## Processing images to detect coffee inside cup.
 
 In this project I`ll try two paradighms. 
 
 1) Coffee detection via traditional image processing. 
 
-2) Training nerual network from TF2 model garden zoo.
+2) Training nerual network (NN) from TF2 model garden zoo.
 
 So lets start from the first part.
 ## 1) Classical image processing
@@ -34,4 +34,24 @@ Workflow includes:
 9) Filtering result 
 10) Drawing rectangle over result
 
-I have already written the code in python represented this workflow. 
+I have already written function in python represented this workflow (img_processing_1_2.py). 
+
+<img width="598" alt="Снимок экрана 2021-11-01 в 14 00 23" src="https://user-images.githubusercontent.com/43553016/139661863-d15f0640-c60e-49da-9754-08307d5a66c4.png">
+
+I also left a little dataset and the script for testing this workflow (test_img_prepr.py).
+Now, we can move to the second part of the project - nerual network.
+
+## 2) Training NN
+
+As far as we are going to use this algoritm on Raspberry PI, we should care about inference time. According this I chose ssd_mobilenet from TF2 model garden zoo. Model perfect suits for cases where inference time is main criterion. Deploying a model means such stages as preparing dataset, training model, evaluating model on unseen data, quantize weights and translate to Raspberry PI.  
+
+Generally, I can highlight workflow as follow:
+
+1) Collecting images for train, validation and test datasets.
+2) Labeling images (I made it via CVAT.org)
+3) Download pretrained NN.
+4) Change config file and train NN.
+5) Evaluate model.
+6) Quantize weights.
+7) Deploy to Raspberry PI
+
