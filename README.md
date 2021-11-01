@@ -12,7 +12,8 @@ So lets start from the first part.
 
 In order to find out the coffee lets me show some examples of images I took on my camera. There are dozen of images, so I`ll show you just couple of them.
 
-![atl text](https://user-images.githubusercontent.com/43553016/139642156-17a152f4-a5e6-47e9-b31a-e3f0920cc558.png)
+![alt text] (https://user-images.githubusercontent.com/43553016/139649523-b66120f2-5488-45ad-944f-acef4d572dbf.jpg)
+
 
 And this one
 
