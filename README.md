@@ -48,7 +48,7 @@ As far as we are going to use this algoritm on Raspberry PI, we should care abou
 Generally, I can highlight workflow as follow:
 
 1) Collecting images for train, validation and test datasets.
-2) Labeling images (I made it via CVAT.org)
+2) Labeling images (CVAT.org)
 3) Download pretrained NN.
 4) Change config file and train NN.
 5) Evaluate model.
