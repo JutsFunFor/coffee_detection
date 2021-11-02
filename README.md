@@ -38,6 +38,7 @@ I have already written function in python represented this workflow (img_process
 
 <img width="598" alt="Снимок экрана 2021-11-01 в 14 00 23" src="https://user-images.githubusercontent.com/43553016/139661863-d15f0640-c60e-49da-9754-08307d5a66c4.png">
 
+Changing parameters inside code you can easily optimize algorithm for different light conditions and type of coffee!
 
 ## 2) Training NN
 
