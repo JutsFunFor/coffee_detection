@@ -38,8 +38,6 @@ I have already written function in python represented this workflow (img_process
 
 <img width="598" alt="Снимок экрана 2021-11-01 в 14 00 23" src="https://user-images.githubusercontent.com/43553016/139661863-d15f0640-c60e-49da-9754-08307d5a66c4.png">
 
-I also left a little dataset and the script for testing this workflow (test_img_prepr.py).
-Now, we can move to the second part of the project - nerual network.
 
 ## 2) Training NN
 
