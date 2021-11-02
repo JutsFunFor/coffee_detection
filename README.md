@@ -54,13 +54,27 @@ Generally, I can highlight workflow as follow:
 6) Quantize weights.
 7) Deploy to Raspberry PI
 
-### 1) Collecting images
+#### 1) Collecting images
 
-The main part of each training process is to collect and standartize data. As for me, training dataset contains 184 images from diffferent coffee machines, light conditions and coffee types. All images was cropped according region of interests. Each image has size of (100, 150). Input tensor of ssd_mobilenet has right the same shape. Validataion dataset includes about 
+The main part of each training process is to collect and standartize data. As for me, training dataset contains 184 images from diffferent coffee machines, light conditions and coffee types. All images was cropped according region of interests. Each image has size of (100, 150). Input tensor of ssd_mobilenet has right the same shape. Validataion dataset includes about 50 images and test dataset has the same size.
 
-### 2) Labeling images
+#### 2) Labeling images
 
-After collecting dataset
+Now we have to label each image to provide tfrecords for deep learning model. I used CVAT.org for labling images. 
+
+![image](https://user-images.githubusercontent.com/43553016/139851714-bfec2dce-b24e-4545-8503-054ed968da75.png)
+
+After labeling you can download annotations as tfrecords and use them for training model.
+
+####  3) Downloading pretrained network
+
+You can easily choose model that suits your preferances at  [TensorFlow 2 Detection Model Zoo](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/tf2_detection_zoo.md#tensorflow-2-detection-model-zoo)
+I took ssd_mobilenet for fastest inference on Raspberry PI.
+
+#### 4) Changing config file and training 
+
+All 
+
 
 
 
