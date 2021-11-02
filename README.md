@@ -54,8 +54,13 @@ Generally, I can highlight workflow as follow:
 6) Quantize weights.
 7) Deploy to Raspberry PI
 
+### 1) Collecting images
 
+The main part of each training process is to collect and standartize data. As for me, training dataset contains 184 images from diffferent coffee machines, light conditions and coffee types. All images was cropped according region of interests. Each image has size of (100, 150). Input tensor of ssd_mobilenet has right the same shape. Validataion dataset includes about 
 
+### 2) Labeling images
+
+After collecting dataset
 
 
 
