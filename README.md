@@ -5,7 +5,7 @@ In this project I`ll try two paradighms.
 
 1) Coffee detection via traditional image processing. 
 
-2) Training nerual network (NN) from TF2 model garden zoo.
+2) Training nerual network (NN) from TF2 detection model zoo.
 
 So lets start from the first part.
 ## 1) Classical image processing
@@ -73,8 +73,12 @@ I took ssd_mobilenet for fastest inference on Raspberry PI.
 
 #### 4) Changing config file and training 
 
-All 
+All training process described in this [tutorial](https://tensorflow-object-detection-api-tutorial.readthedocs.io/en/latest/training.html)
+You need extra changes in config file if you want input tensor shape of (100, 150) in model.
 
+Adding 
+
+#### 5) Evaluating model 
 
 
 
