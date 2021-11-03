@@ -7,7 +7,7 @@ In this project I`ll try two paradighms.
 
 2) Training nerual network (NN) from TF2 detection model zoo.
 
-So lets start from the first part.
+
 ## 1) Classical image processing
 
 In order to find out the coffee, let me show some examples of images I took on my camera. There are dozen of images, so I`ll show you just couple of them.
@@ -34,15 +34,15 @@ Workflow includes:
 9) Filtering result 
 10) Drawing rectangle over result
 
-I have already written function in python represented this workflow (img_processing_1_2.py). 
+I have already written function in python represented this workflow (img_processing.py). 
 
 <img width="598" alt="Снимок экрана 2021-11-01 в 14 00 23" src="https://user-images.githubusercontent.com/43553016/139661863-d15f0640-c60e-49da-9754-08307d5a66c4.png">
 
-Changing parameters inside code you can easily optimize algorithm for different light conditions and type of coffee!
+Changing parameters inside code you can optimize algorithm for different light conditions and type of coffee!
 
 ## 2) Training NN
 
-As far as we are going to use this algoritm on Raspberry PI, we should care about inference time. According this I chose ssd_mobilenet from TF2 model garden zoo. Model perfect suits for cases where inference time is main criterion. Deploying a model means such stages as preparing dataset, training model, evaluating model on unseen data, quantize weights and translate to Raspberry PI.  
+As far as we are going to use this algoritm on Raspberry PI, we should care about inference time. According this I chose ssd_mobilenet from TF2 Detection Model Zoo. Model perfect suits for cases where inference time is main criterion. Deploying a model means such stages as preparing dataset, training model, evaluating model on unseen data, quantizing weights and translating to Raspberry PI.  
 
 Generally, I can highlight workflow as follow:
 
@@ -56,7 +56,7 @@ Generally, I can highlight workflow as follow:
 
 #### 1) Collecting images
 
-The main part of each training process is to collect and standartize data. As for me, training dataset contains 184 images from diffferent coffee machines, light conditions and coffee types. All images was cropped according region of interests. Each image has size of (100, 150). Input tensor of ssd_mobilenet has right the same shape. Validataion dataset includes about 50 images and test dataset has the same size.
+The main part of each training process is to collect and standartize data. As for me, training dataset contains 184 images from diffferent coffee machines, light conditions and coffee types. All images was cropped according region of interests. Each image has shape of (100, 150, 3). Input tensor of ssd_mobilenet has shape of (1, 100, 150, 3). Validataion dataset includes about 50 images and test dataset has the same size.
 
 #### 2) Labeling images
 
@@ -73,12 +73,28 @@ I took ssd_mobilenet for fastest inference on Raspberry PI.
 
 #### 4) Changing config file and training 
 
-All training process described in this [tutorial](https://tensorflow-object-detection-api-tutorial.readthedocs.io/en/latest/training.html)
-You need extra changes in config file if you want input tensor shape of (100, 150) in model.
+All training process described in this [tutorial](https://tensorflow-object-detection-api-tutorial.readthedocs.io/en/latest/training.html).
 
-Adding 
+In order to provide training on small-sized images, we have to add `pad_to_multiple: 32` in the config file ![image](https://user-images.githubusercontent.com/43553016/140097574-18f6f96c-bfe5-46a5-878a-446300979604.png)
+
 
 #### 5) Evaluating model 
 
+#### 6) Quantizing weights 
+
+After importing model, we want to run it on Raspberry PI. It is possible to reduce model size by quantizing it`s weights. 
+Code make default optimizing and saves weights in float16 prec
+
+`import tensorflow as tf`
+
+`converter = tf.lite.TFLiteConverter.from_saved_model('tflite/saved_model/)`
+
+`converter.optimizations = [tf.lite.Optimize.DEFAULT]`
+
+`tflite_model = converter.convert()`
+
+`with open('model_optimize2.tflite', 'wb') as f:` 
+
+ ---- `f.write(tflite_model)`
 
 
