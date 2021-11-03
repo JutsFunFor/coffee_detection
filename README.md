@@ -95,6 +95,11 @@ Code make default optimizing and saves weights in float16 prec
 
 `with open('model_optimize2.tflite', 'wb') as f:` 
 
+|
  ---- `f.write(tflite_model)`
 
+
+#### 7) Deploying to Rasberry PI
+
+Using tflite interpreter we can handle inference on Raspberry  PI. Check code!
 
