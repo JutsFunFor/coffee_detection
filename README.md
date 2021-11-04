@@ -34,7 +34,6 @@ Workflow includes:
 9) Filtering result 
 10) Drawing rectangle over result
 
-I have already written function in python represented this workflow (img_processing.py). 
 
 <img width="598" alt="Снимок экрана 2021-11-01 в 14 00 23" src="https://user-images.githubusercontent.com/43553016/139661863-d15f0640-c60e-49da-9754-08307d5a66c4.png">
 
