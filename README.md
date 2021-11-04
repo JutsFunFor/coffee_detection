@@ -10,7 +10,7 @@ In this project I`ll try two paradighms.
 
 ## 1) Classical image processing
 
-In order to find out the coffee, let me show some examples of images I took on my camera. There are dozen of images, so I`ll show you just couple of them.
+In order to find out the coffee, let me show some examples of images I took on my camera. There are dozens of images, so I`ll show you just couple of them.
 
 ![alt text](https://user-images.githubusercontent.com/43553016/139650066-7aea0794-649c-49f7-aaa7-f6e3008da5ec.jpg)
 
@@ -37,7 +37,6 @@ Workflow includes:
 
 <img width="598" alt="Снимок экрана 2021-11-01 в 14 00 23" src="https://user-images.githubusercontent.com/43553016/139661863-d15f0640-c60e-49da-9754-08307d5a66c4.png">
 
-Changing parameters inside code you can optimize algorithm for different light conditions and type of coffee!
 
 ## 2) Training NN
 
@@ -54,11 +53,11 @@ Generally, I can highlight workflow as follow:
 
 #### 1) Collecting images
 
-The main part of each training process is to collect and standartize data. As for me, training dataset contains 184 images from diffferent coffee machines, light conditions and coffee types. All images was cropped according region of interests. Each image has shape of (100, 150, 3). Input tensor of ssd_mobilenet has shape of (1, 100, 150, 3). Validataion dataset includes about 50 images and test dataset has the same size.
+The main part of each training process is to collect and standartize data. As for me, training dataset contains 184 images from diffferent coffee machines, light conditions and coffee types. All images was cropped according region of interests. Each image has shape of (100, 150, 3). Input tensor of ssd_mobilenet has shape of (1, 100, 150, 3). Test dataset includes about 50 images.
 
 #### 2) Labeling images
 
-Now we have to label each image to provide tfrecords for deep learning model. I used CVAT.org for labling images. 
+Now we have to label each image to provide tfrecords for deep learning model. I used CVAT.org for labeling images.
 
 ![image](https://user-images.githubusercontent.com/43553016/139851714-bfec2dce-b24e-4545-8503-054ed968da75.png)
 
@@ -66,7 +65,7 @@ After labeling you can download annotations as tfrecords and use them for traini
 
 ####  3) Downloading pretrained network
 
-You can easily choose model that suits your preferances at  [TensorFlow 2 Detection Model Zoo](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/tf2_detection_zoo.md#tensorflow-2-detection-model-zoo)
+You can easily choose model that suits your preferences at  [TensorFlow 2 Detection Model Zoo](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/tf2_detection_zoo.md#tensorflow-2-detection-model-zoo)
 I took ssd_mobilenet for fastest inference on Raspberry PI.
 
 #### 4) Changing config file and training 
@@ -78,8 +77,7 @@ In order to provide training on small-sized images, we have to add `pad_to_multi
 
 #### 5) Quantizing weights 
 
-After importing model, we want to run it on Raspberry PI. It is possible to reduce model size by quantizing it`s weights. 
-Code make default optimizing and saves weights in float16 precision.
+After importing model, we want to run it on Raspberry PI. It is possible to reduce model size by quantization it's weights. Code make default optimizing and saves weights in float16 precision.
 
 `import tensorflow as tf`
 
@@ -97,5 +95,5 @@ Code make default optimizing and saves weights in float16 precision.
 
 #### 6) Deploying to Rasberry PI
 
-Using tflite interpreter we can handle inference on Raspberry  PI. Check code!
+Using tflite interpreter we can inference model on Raspberry  PI. Check the code!
 
