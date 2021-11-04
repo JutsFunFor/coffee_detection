@@ -50,9 +50,8 @@ Generally, I can highlight workflow as follow:
 2) Labeling images (CVAT.org)
 3) Download pretrained NN.
 4) Change config file and train NN.
-5) Evaluate model.
-6) Quantize weights.
-7) Deploy to Raspberry PI
+5) Quantize weights.
+6) Deploy to Raspberry PI
 
 #### 1) Collecting images
 
@@ -78,12 +77,10 @@ All training process described in this [tutorial](https://tensorflow-object-dete
 In order to provide training on small-sized images, we have to add `pad_to_multiple: 32` in the config file ![image](https://user-images.githubusercontent.com/43553016/140097574-18f6f96c-bfe5-46a5-878a-446300979604.png)
 
 
-#### 5) Evaluating model 
-
-#### 6) Quantizing weights 
+#### 5) Quantizing weights 
 
 After importing model, we want to run it on Raspberry PI. It is possible to reduce model size by quantizing it`s weights. 
-Code make default optimizing and saves weights in float16 prec
+Code make default optimizing and saves weights in float16 precision.
 
 `import tensorflow as tf`
 
@@ -95,11 +92,11 @@ Code make default optimizing and saves weights in float16 prec
 
 `with open('model_optimize2.tflite', 'wb') as f:` 
 
-|
+
  ---- `f.write(tflite_model)`
 
 
-#### 7) Deploying to Rasberry PI
+#### 6) Deploying to Rasberry PI
 
 Using tflite interpreter we can handle inference on Raspberry  PI. Check code!
 
