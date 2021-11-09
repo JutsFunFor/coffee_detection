@@ -77,7 +77,7 @@ In order to provide training on small-sized images, we have to add `pad_to_multi
 
 #### 5) Quantizing weights 
 
-After importing model, we want to run it on Raspberry PI. It is possible to reduce model size by quantization it's weights. Code make default optimizing and saves weights in float16 precision.
+After importing model, we want to run it on Raspberry PI. It is possible to reduce model size by quantization it's weights. The simplest form of post-training quantization statically quantizes only the weights from floating point to integer, which has 8-bits of precision:
 
 ```python
 import tensorflow as tf
