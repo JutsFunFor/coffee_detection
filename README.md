@@ -79,18 +79,16 @@ In order to provide training on small-sized images, we have to add `pad_to_multi
 
 After importing model, we want to run it on Raspberry PI. It is possible to reduce model size by quantization it's weights. Code make default optimizing and saves weights in float16 precision.
 
-`import tensorflow as tf`
+```python
+import tensorflow as tf
 
-`converter = tf.lite.TFLiteConverter.from_saved_model('tflite/saved_model/)`
+converter = tf.lite.TFLiteConverter.from_saved_model('tflite/saved_model/)
+converter.optimizations = [tf.lite.Optimize.DEFAULT]
+tflite_model = converter.convert()
 
-`converter.optimizations = [tf.lite.Optimize.DEFAULT]`
-
-`tflite_model = converter.convert()`
-
-`with open('model_optimize2.tflite', 'wb') as f:` 
-
-
- ---- `f.write(tflite_model)`
+with open('model_optimize2.tflite', 'wb') as f:
+    f.write(tflite_model)
+```
 
 
 #### 6) Deploying to Rasberry PI
