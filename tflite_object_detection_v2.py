@@ -150,17 +150,9 @@ class ModelEvalTFLite:
 
 
 if __name__ == '__main__':
-    # image_path = 'all_cropped/all_cropped/Sistema CM 26.10.2021, 15-16-06(pb).jpg'
-    # model_path = 'tflite_ssd_mobilenet_100x150.tflite'
-    # labels = 'labelmap_100x150.pbtxt'
-    # threshold = 0.8
-    #
-    # image = cv.imread(image_path, cv.IMREAD_UNCHANGED)
-    # image = np.array(image, dtype=np.float32)
-    # image = np.expand_dims(image, axis=0)
+    
     modelEval = ModelEvalTFLite()
-    # print(modelEval.image)
-
+    
     xmin, ymin, xmax, ymax, label, score, image = modelEval.initialize()
     image = cv.cvtColor(image, cv.COLOR_BGR2RGB)
     cv.rectangle(image, (xmin, ymin), (xmax, ymax), (255, 255, 0))
