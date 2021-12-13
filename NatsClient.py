@@ -8,7 +8,7 @@ from datetime import datetime
 class NatsClient:
 
     def __init__(self):
-        self._url = 'nats://complexos.local:4222'
+        self._url = 'your url'
         self._topic = 'Coffee.core.detection'
         self._nc = NATS()
 
@@ -49,11 +49,8 @@ class NatsClient:
 
 if __name__ == '__main__':
 
-
-    url = ''
-
     loop = asyncio.get_event_loop()
     loop.create_task(NatsClient().send_msg('Hello, World!', loop))
-    # loop.create_task(receive_msg(url_1, loop))
+    
     loop.run_forever()
     loop.close()
