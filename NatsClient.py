@@ -8,7 +8,7 @@ from datetime import datetime
 class NatsClient:
 
     def __init__(self):
-        self._url = 'your url'
+        self._url = 'YOUR NATS URL'
         self._topic = 'Coffee.core.detection'
         self._nc = NATS()
 
