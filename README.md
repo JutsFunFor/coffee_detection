@@ -87,7 +87,7 @@ converter.experimental_new_converter = True
 converter.target_spec.supported_ops =[tf.lite.OpsSet.TFLITE_BUILTINS, tf.lite.OpsSet.SELECT_TF_OPS]
 tflite_model = converter.convert()
 
-with open('model_optimize2.tflite', 'wb') as f:
+with open('my_tflite_model.tflite', 'wb') as f:
     f.write(tflite_model)
 ```
 
