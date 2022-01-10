@@ -82,7 +82,7 @@ After importing model, we want to run it on Raspberry PI. It is possible to redu
 ```python
 import tensorflow as tf
 
-converter = tf.lite.TFLiteConverter.from_saved_model('PATH_TO saved_model.pb')
+converter = tf.lite.TFLiteConverter.from_saved_model('saved_model/')
 converter.experimental_new_converter = True
 converter.target_spec.supported_ops =[tf.lite.OpsSet.TFLITE_BUILTINS, tf.lite.OpsSet.SELECT_TF_OPS]
 tflite_model = converter.convert()
